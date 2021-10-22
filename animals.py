@@ -1,26 +1,31 @@
 # import the python datetime module to help us create a timestamp
-from models import Snake, SwimmingAnimal, WalkingAnimal
+from animals import Snake, SwimmingAnimal, WalkingAnimal, Llama
 from attractions import PettingZoo, SnakePit, Aquarium
 
-bandit = WalkingAnimal('Bandit', 'raccoon', 'raccoon chow', 'morning')
-jolene = WalkingAnimal('Jolene', 'llama', 'llama chow', 'midday')
-gnash = WalkingAnimal('Gnash', 'cat', 'meow mix', 'afternoon')
-rocco = WalkingAnimal('Rocco', 'cat', 'meow mix', 'afternoon')
-pippi = WalkingAnimal('Pippi', 'cat', 'meow mix', 'morning')
-fangor = WalkingAnimal('Fangor', 'cat', 'meow mix', 'morning')
-echo = SwimmingAnimal('Echo', 'dolphin', 'fish')
-willy = SwimmingAnimal('Willy', 'killer whale', 'fish')
-jaws = SwimmingAnimal('Jaws', 'shark', 'fish')
-ollie = SwimmingAnimal('Ollie', 'octopus', 'crab')
-puffer = SwimmingAnimal('Puffer', 'puffer fish', 'fish food')
-ellie = SwimmingAnimal('Ellie', 'eel', 'eel mix')
-jericho = Snake('Jericho', 'morning', 'rat')
-jake = Snake('Jake', 'midday', 'rat')
-methusala = Snake('Methusala', 'afternoon', 'rat')
+bandit = WalkingAnimal('Bandit', 'raccoon', 'raccoon chow', 'morning', 1111)
+
+jolene = Llama('Jolene', 'llama', 'llama chow', 'midday', 2222)
+gnash = WalkingAnimal('Gnash', 'cat', 'meow mix', 'afternoon', 3333)
+rocco = WalkingAnimal('Rocco', 'cat', 'meow mix', 'afternoon', 4444)
+pippi = WalkingAnimal('Pippi', 'cat', 'meow mix', 'morning', 5555)
+fangor = WalkingAnimal('Fangor', 'cat', 'meow mix', 'morning', 6666)
 print(f'{bandit.name} the {bandit.species} is available to pet during the {bandit.shift} shift.')
+print(bandit.feed())
+print(jolene.feed())
+
+echo = SwimmingAnimal('Echo', 'dolphin', 'fish', 5126)
+willy = SwimmingAnimal('Willy', 'killer whale', 'fish', 3456)
+jaws = SwimmingAnimal('Jaws', 'shark', 'fish', 3264)
+ollie = SwimmingAnimal('Ollie', 'octopus', 'crab', 83127)
+puffer = SwimmingAnimal('Puffer', 'puffer fish', 'fish food', 7125)
+ellie = SwimmingAnimal('Ellie', 'eel', 'eel mix', 6424)
+
+
+jericho = Snake('Jericho', 'Boa', 'rat', 'morning', 7146)
+jake = Snake('Jake', 'Python', 'rat', 'midday', 1125)
+methusala = Snake('Methusala',  'Anaconda', 'rat', 'afternoon', 2796)
 print(jericho.feed())
 print(jericho)
-
 
 # Petting Zoo
 varmint_village = PettingZoo("Varmint Village")
@@ -32,7 +37,7 @@ for animal in varmint_village.animals:
     print(f"* {animal.name} the {animal.species.title()}")
 
 slither_inn = SnakePit("Slither Inn")
-snakes=[jericho, jake, methusala]
+snakes = [jericho, jake, methusala]
 for snake in snakes:
     slither_inn.animals.append(snake)
 print(f"{slither_inn.attraction_name} is where you'll find {slither_inn.description}, like")
